@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - ExploreEase</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-page-header">
+                <button type="button" class="back-button" onclick="window.history.back();">← Back</button>
+                <div>
+                    <span class="profile-badge">Member</span>
+                    <h1 id="profileName">Your Profile</h1>
+                    <p class="profile-subtitle">Manage your travel details, saved trips, and account preferences.</p>
+                </div>
+                <a href="destinations.html" class="view-more-btn">Explore More Destinations</a>
+            </div>
+
+            <div class="profile-grid">
+                <div class="profile-card">
+                    <h2>Account Details</h2>
+                    <div class="profile-detail-row">
+                        <span>Name</span>
+                        <strong id="accountName">Guest Traveler</strong>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span>Email</span>
+                        <strong id="accountEmail">guest@example.com</strong>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span>Membership</span>
+                        <strong>Travel Explorer</strong>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span>Preferred Currency</span>
+                        <strong>Indian Rupee (₹)</strong>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <h2>Travel Summary</h2>
+                    <div class="stat-boxes">
+                        <div class="stat-box"><strong>8</strong><span>Saved Trips</span></div>
+                        <div class="stat-box"><strong>3</strong><span>Booked Getaways</span></div>
+                        <div class="stat-box"><strong>14</strong><span>Favorite Destinations</span></div>
+                    </div>
+                    <p>Keep your favorite travel plans and personal details in one place for easy booking.</p>
+                </div>
+            </div>
+
+            <div class="profile-card profile-full-width">
+                <h2>Saved Destinations</h2>
+                <div class="saved-destinations-grid">
+                    <div class="saved-destination-card">
+                        <h3>Goa, India</h3>
+                        <p>Beach escape with seafood, nightlife, and coastal culture.</p>
+                    </div>
+                    <div class="saved-destination-card">
+                        <h3>Kerala, India</h3>
+                        <p>Backwaters, tea gardens, and calm houseboat travel.</p>
+                    </div>
+                    <div class="saved-destination-card">
+                        <h3>Rajasthan, India</h3>
+                        <p>Royal palaces, desert safaris, and colorful street markets.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-card profile-full-width">
+                <h2>Update Profile</h2>
+                <form id="profileForm" class="profile-form">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your name">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                    <label for="phone">Phone number</label>
+                    <input type="text" id="phone" placeholder="Enter your phone number">
+                    <button type="submit" class="view-more-btn">Save Profile</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ExploreEase</h3>
+                    <p>Your trusted guide to exploring the incredible diversity and beauty of India.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="budget-planner.html">Budget Planner</a></li>
+                        <li><a href="trip-requirements.html">Checklist</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">Facebook</a>
+                        <a href="#" class="social-icon">Twitter</a>
+                        <a href="#" class="social-icon">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ExploreEase. All rights reserved. Made with ❤️ for Incredible India.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const profileName = document.getElementById('profileName');
+        const accountName = document.getElementById('accountName');
+        const accountEmail = document.getElementById('accountEmail');
+
+        const user = localStorage.getItem('currentLoggedInUser');
+        if (user) {
+            profileName.textContent = user + ' Profile';
+            accountName.textContent = user;
+            accountEmail.textContent = user.includes('@') ? user : user + '@example.com';
+        }
+
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Profile changes saved successfully.');
+        });
+    </script>
+</body>
+
+</html>

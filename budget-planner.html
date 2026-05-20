@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner - ExploreEase</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <div class="nav-logo-left">
+                <a href="index.html" class="left-logo-link">
+                    <div class="left-logo-content">
+                        <span class="logo-icon-travel">✈️</span>
+                        <span class="logo-text-gradient">ExploreEase</span>
+                        <span class="logo-icon-compass">🧭</span>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="destinations.html" class="nav-link">Destinations</a>
+                <a href="budget-planner.html" class="nav-link active">Budget Planner</a>
+                <a href="trip-requirements.html" class="nav-link">Checklist</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="login.html" class="nav-link login-btn">Login</a>
+            </div>
+
+
+        </div>
+    </nav>
+
+
+    <section class="budget-planner-section">
+        <div class="container">
+            <h2>Trip Budget Planner</h2>
+            <p class="planner-subtitle">Plan your Indian adventure with our smart budget calculator</p>
+
+            <div class="planner-container">
+                <div class="planner-input">
+                    <h3>Plan Your Trip Budget</h3>
+
+                    <div class="budget-form">
+                        <div class="trip-details">
+                            <div class="form-col">
+                                <label for="duration">Trip Duration (days)</label>
+                                <input type="number" id="duration" min="1" placeholder="Enter number of days" value="5">
+                            </div>
+                            <div class="form-col">
+                                <label for="travelers">Number of Travelers</label>
+                                <input type="number" id="travelers" min="1" placeholder="Enter number of travelers" value="1">
+                            </div>
+                        </div>
+
+                        <div class="add-expense-section">
+                            <h4>Add Your Expenses</h4>
+                            <div class="add-expense-form">
+                                <input type="text" id="expenseName" placeholder="Expense category (e.g., Accommodation)" maxlength="30">
+                                <input type="number" id="expenseAmount" placeholder="Daily amount (₹)" min="0">
+                                <button type="button">Add Expense</button>
+                            </div>
+                        </div>
+
+                        <div class="expenses-list">
+                            <h4>Your Expenses</h4>
+                            <div id="expensesContainer">
+                                <p class="no-expenses">No expenses added yet. Add your first expense above!</p>
+                            </div>
+                        </div>
+
+                        <button type="button" class="calculate-btn">Recalculate Budget</button>
+                    </div>
+                </div>
+
+                <div class="budget-summary">
+                    <h3>Budget Summary</h3>
+
+                    <div class="summary-card">
+                        <div class="summary-item">
+                            <span class="label">Daily Cost (Per Person):</span>
+                            <span class="value" id="dailyCost">₹0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Total Trip Cost (All People):</span>
+                            <span class="value highlight" id="totalCost">₹0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Cost Per Person:</span>
+                            <span class="value" id="costPerPerson">₹0</span>
+                        </div>
+                    </div>
+
+                    <div class="breakdown">
+                        <h4>Expense Breakdown</h4>
+                        <div id="breakdownChart" class="breakdown-chart">
+                            <p class="no-expenses">No expenses to display</p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="save-plan-btn">Save Plan</button>
+                </div>
+            </div>
+
+            <div class="budget-tips">
+                <h3>💡 Budget Planning Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>Book in Advance</h4>
+                        <p>Book hotels and trains 2-3 weeks ahead to get better rates and discounts.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Travel Off-Season</h4>
+                        <p>Visit during shoulder seasons to save on accommodation and enjoy fewer crowds.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Explore Local Food</h4>
+                        <p>Eat at local restaurants and street food stalls for authentic and budget-friendly meals.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Use Public Transport</h4>
+                        <p>Use buses, trains, and autos instead of taxis to save significantly on transport costs.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Group Discounts</h4>
+                        <p>Travel with a group to avail discounts on hotels, activities, and entry fees.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Plan Activities</h4>
+                        <p>Research free attractions and budget activities to maximize your travel experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ExploreEase</h3>
+                    <p>Your trusted guide to exploring the incredible diversity and beauty of India.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="budget-planner.html">Budget Planner</a></li>
+                        <li><a href="trip-requirements.html">Checklist</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">Facebook</a>
+                        <a href="#" class="social-icon">Twitter</a>
+                        <a href="#" class="social-icon">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ExploreEase. All rights reserved. Made with ❤️ for Incredible India.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="js/main.js"></script>
+    <script src="js/budget-planner.js"></script>
+
+</body>
+
+</html>

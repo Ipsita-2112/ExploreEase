@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Requirements - ExploreEase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>  .toast {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #fff;
+            /* box-shadow: 0 6px 24px #5de49c; */
+            z-index: 9999;
+            transform: translateY(20px);
+            /* opacity: 0; */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            max-width: 320px;
+            min-width: 200px;
+            pointer-events: none;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        .toast.success { background: #4ec284; }
+        /* .toast.error { background: #e53e3e; }*/
+        </style> 
+ 
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo-left">
+            <a href="index.html" class="left-logo-link">
+                <div class="left-logo-content">
+                    <span>✈️</span>
+                    <span class="logo-text-gradient">ExploreEase</span>
+                    <span>🧭</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="destinations.html" class="nav-link">Destinations</a>
+            <a href="budget-planner.html" class="nav-link">Budget Planner</a>
+            <a href="trip-requirements.html" class="nav-link active">Checklist</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="login.html" class="nav-link login-btn">Login</a>
+        </div>
+    </div>
+</nav>
+
+<section class="requirements-section">
+    <div class="container">
+        <h2>Trip Checklist</h2>
+        <p class="requirements-subtitle">Prepare for your Indian adventure with our comprehensive checklist</p>
+
+        <div class="requirements-container">
+            <div class="checklist-panel">
+                <div class="add-item-section">
+                    <h3>Add Custom Items</h3>
+                    <div class="add-item-form">
+                        <input type="text" id="newItemInput" placeholder="Enter requirement (e.g., Camera equipment)" maxlength="50">
+                        <button id="addItemBtn">Add Item</button>
+                    </div>
+                </div> 
+
+                <div class="preset-categories" id="presetCategories">
+
+                    <div class="category">
+                        <button class="category-btn">📄 Documents</button>
+                        <div class="category-items open" id="documents">
+                            <label class="item-checkbox"><input type="checkbox"><span>Passport</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Visa / Travel Permit</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Travel Insurance Papers</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Flight / Train Tickets</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Hotel Reservations</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Vaccination Certificates</span><button class="delete-btn" type="button">×</button></label>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <button class="category-btn">👕 Clothing & Footwear</button>
+                        <div class="category-items" id="clothing">
+                            <label class="item-checkbox"><input type="checkbox"><span>Comfortable Shoes</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Formal Clothes</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Light Cotton Clothes</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Rain Jacket / Poncho</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Socks & Underwear</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Sweater / Jacket (for hill stations)</span><button class="delete-btn" type="button">×</button></label>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <button class="category-btn">⚕️ Health & Toiletries</button>
+                        <div class="category-items" id="health">
+                            <label class="item-checkbox"><input type="checkbox"><span>Prescription Medications</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>First Aid Kit</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Sunscreen & Sunglasses</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Toothbrush & Toothpaste</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Shampoo & Body Wash</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Insect Repellent</span><button class="delete-btn" type="button">×</button></label>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <button class="category-btn">📱 Electronics</button>
+                        <div class="category-items" id="electronics">
+                            <label class="item-checkbox"><input type="checkbox"><span>Mobile Phone & Charger</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Power Bank</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Camera</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Headphones</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Laptop / Tablet</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Universal Adapter</span><button class="delete-btn" type="button">×</button></label>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <button class="category-btn">✈️ Travel Essentials</button>
+                        <div class="category-items" id="travel">
+                            <label class="item-checkbox"><input type="checkbox"><span>Travel Backpack / Luggage</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Day Backpack</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Wallet & Money</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Credit/Debit Cards</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Travel Pillow</span><button class="delete-btn" type="button">×</button></label>
+                            <label class="item-checkbox"><input type="checkbox"><span>Luggage Lock</span><button class="delete-btn" type="button">×</button></label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="progress-panel">
+                <h3>Your Progress</h3>
+                <div class="progress-card">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span class="progress-percent" id="progressPercent">0%</span>
+                        <span class="progress-label">Complete</span>
+                    </div>
+                    <div class="progress-stats">
+                        <div class="stat"><span class="stat-label">Total Items:</span><span class="stat-value" id="totalItems">0</span></div>
+                        <div class="stat"><span class="stat-label">Completed:</span><span class="stat-value" id="completedItems">0</span></div>
+                        <div class="stat"><span class="stat-label">Remaining:</span><span class="stat-value" id="remainingItems">0</span></div>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-primary" id="resetBtn">Reset Checklist</button>
+                    <button class="btn-secondary" id="downloadBtn">Download Checklist</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>ExploreEase</h3>
+            <p>Your trusted guide to exploring the incredible diversity and beauty of India.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="budget-planner.html">Budget Planner</a></li>
+                <li><a href="trip-requirements.html">Checklist</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 ExploreEase. All rights reserved. Made with ❤️ for Incredible India.</p>
+    </div>
+</footer>
+
+ 
+ <div class="toast" id="toast"></div>
+<script src="js/main.js"></script>
+<script src="js/checklist.js"></script>
+
+</body>
+</html>
